@@ -1973,7 +1973,9 @@ const ELEMENTS = [
      A checklist with a tick box on every line and a link button where a line opens something.
      Monday 21 September: the plan's eight Before the lesson lines, word for word (the brief for
      Monday's deck); the cards Doc's address, in brackets in the plan, is its button. */
-  { id: 'prep',    name: 'Pre and Post List', prep: true, items: [
+  /* wide: the list is the plan's eight lines word for word, so it takes two cells of the grid
+     (fix round 1, 16 Sep 2026: one cell made the Overview scroll at both window shapes) */
+  { id: 'prep',    name: 'Pre and Post List', prep: true, wide: true, items: [
     { text: 'Print 20 Student Sheets, slide 2 of Monday\'s sheet file.', link: 'sheet file',
       href: 'https://docs.google.com/presentation/d/1S9F8oaR01B7gEHhJ_8m_5SI63wLQXJyGVIPfobxY7tA/edit' },
     { text: 'Print the Secret Challenge cards Doc: card 2 once, cards 3, 4 and 5 twice each. Seal each in an envelope. Hide cards 3 to 5 around IG04, one envelope per table\'s reach, and hide card 2 somewhere you can send a student to.', link: 'cards Doc',
@@ -2005,9 +2007,10 @@ const ELEMENTS = [
     sc: 'Success Criterion 3: investigate your car and explain what you find',
     brainBreak: 'Heads Down, Thumbs Up' },
   { id: 'reflect', name: 'Reflection and exit' }
-  /* Two Lessons and one intro card: the Pre and Post List plus seven cards is EIGHT, so the
-     last card spans two cells of the three by three grid (deck law, The Overview, points 1
-     and 14). Notes for next lesson is the last slide of the Reflection and exit card. */
+  /* Two Lessons and one intro card: the Pre and Post List plus seven cards is EIGHT, so one card
+     spans two cells of the three by three grid (deck law, The Overview, points 1 and 14): here the
+     Pre and Post List, which asks for it with wide: true. Notes for next lesson is the last slide
+     of the Reflection and exit card. */
 ];
 
 const EDIT_KEY = 'g7-week3-lesson2-edits:' + DECK_VERSION;
@@ -3727,7 +3730,14 @@ class DeckOverview {
     const all = Array.from(this.grid.querySelectorAll('.ov-card'));
     all.forEach(c => c.classList.remove('wide', 'w2', 'w3'));
     this.grid.classList.remove('seven');
-    if (all.length === 8) all[all.length - 1].classList.add('wide');
+    /* Eight cards: one card spans two cells so the grid stays full. It is the last card, unless the
+       Pre and Post List asks for the double cell (wide: true in ELEMENTS), as Monday 21 September's
+       does: it carries the plan's eight Before the lesson lines word for word, and one cell cannot
+       hold them without the grid scrolling. */
+    if (all.length === 8) {
+      const prepWide = all.find(c => c.classList.contains('prep') && c.dataset.wide === 'true');
+      (prepWide || all[all.length - 1]).classList.add('wide');
+    }
     if (all.length === 7) {
       this.grid.classList.add('seven');
       all.forEach((c, i) => c.classList.add(i < 3 ? 'w2' : 'w3'));
@@ -3738,6 +3748,7 @@ class DeckOverview {
     const d = document.createElement('div');
     d.className = 'ov-card prep';
     d.dataset.el = el.id;
+    if (el.wide) d.dataset.wide = 'true';
     const top = document.createElement('span');
     top.className = 'ov-top';
     const name = document.createElement('span');
