@@ -1429,7 +1429,8 @@ ul.plain li::before { color:var(--p-i-ink); }
     <h2 class="reveal" style="margin-bottom:calc(var(--element-gap) * 0.35)">What we are learning today</h2>
     <div class="sheet-stage">
       <div class="col-img reveal sheet-fig sheet-slot sheet-big" data-rings="b2:red" data-ring-steps="b2:red|b3:green|b3r4:gold" style=""></div>
-      <div class="stepcol">
+      <!-- fix round 2: a width cap, so the Going further line wraps and the sheet keeps its room -->
+      <div class="stepcol" style="max-width:min(22vw, 17em)">
         <span class="chip" data-ring-step="1">Success criteria</span>
         <div class="tblock o" data-ring-step="1"><p><b>Going further:</b> Explain which base you would race with, and why.</p></div>
         <span class="chip" data-ring-step="2">Personal goal</span>
@@ -1550,11 +1551,12 @@ ul.plain li::before { color:var(--p-i-ink); }
       <a class="linkbtn" href="https://classroom.google.com/c/ODc2MDk1NjQ1NzY0/m/ODc2MDk1NjQ1Nzg3/details" target="_blank" rel="noopener">▶ Challenge 1 Support - Build Plans</a>
       <a class="linkbtn gold" href="https://classroom.google.com/c/ODc2MDk1NjQ1NzY0/a/ODc2MDk1NjQ1Nzky/details" target="_blank" rel="noopener">▶ Open your Progress Sheet</a>
     </p>
+    <!-- fix round 2: the build order sits above the sheet, full width, so the sheet keeps its room -->
+    <div class="tblock o reveal" style="margin-bottom:calc(var(--element-gap) * 0.35)"><p style="font-size:var(--h3-size); line-height:1.35"><b>Build order:</b> driving-base-1, then driving-base- 3 with-color-sensor, then driving-base- 2. The file names are out of order.</p></div>
     <div class="sheet-stage">
-      <div class="col-img reveal sheet-fig sheet-slot" data-rings="b3r1:green" data-ring-steps="b3r1:green|b3r2:gold" style=""></div>
-      <div class="stepcol">
-        <div class="tblock o reveal"><p style="font-size:var(--h3-size); line-height:1.35"><b>Build order:</b> driving-base-1, then driving-base- 3 with-color-sensor, then driving-base- 2. The file names are out of order.</p></div>
-        <ul class="steps" style="gap:calc(var(--element-gap) * 0.18); margin-top:calc(var(--element-gap) * 0.3)">
+      <div class="col-img reveal sheet-fig sheet-slot sheet-big" data-rings="b3r1:green" data-ring-steps="b3r1:green|b3r2:gold" style=""></div>
+      <div class="stepcol" style="max-width:min(30vw, 24em)">
+        <ul class="steps" style="gap:calc(var(--element-gap) * 0.18)">
           <li class="reveal"><b>Read the step number out loud</b> before you start it.</li>
           <li class="reveal"><b>After each base,</b> write it under Where am I? on your Progress Sheet.</li>
         </ul>
@@ -1612,9 +1614,10 @@ ul.plain li::before { color:var(--p-i-ink); }
   <div class="slide-content" style="max-width:min(97vw,2500px)">
     <p class="eyebrow reveal">// lesson_2 · secret_challenge · what_and_why</p>
     <h2 class="reveal" style="margin-bottom:calc(var(--element-gap) * 0.3)">Lesson 2: the Secret Challenge</h2>
+    <!-- fix round 2: the sheet takes the room, and the What and Why column wraps -->
     <div class="sheet-stage">
-      <div class="col-img reveal sheet-fig sheet-slot" data-rings="b8:gold" style=""></div>
-      <div class="stepcol">
+      <div class="col-img reveal sheet-fig sheet-slot sheet-big" data-rings="b8:gold" style=""></div>
+      <div class="stepcol" style="max-width:min(34vw, 30em)">
         <div class="tblock i reveal"><p style="font-size:var(--h3-size); line-height:1.35"><b>What:</b> a card hidden in this room, with a harder question about your own car. Find it, do it with your car, no coding. Answers on the back of your sheet, then put the card back for the next finder.</p></div>
         <div class="tblock o reveal" style="margin-top:calc(var(--element-gap) * 0.3)"><p style="font-size:var(--h3-size); line-height:1.35"><b>Why:</b> it takes you deeper than the plan, into how your car really works, which is what your code will need next lesson.</p></div>
       </div>
