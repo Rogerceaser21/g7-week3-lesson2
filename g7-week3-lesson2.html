@@ -2549,6 +2549,18 @@ function fitSlides() {
 
 function fitAll() {
   if (typeof measureChipGutter === 'function') measureChipGutter();
+  /* Gates round 1 (16 Sep 2026): every slide back to its load state before anything is measured. A pass
+     that measured pictures under the last pass's fitSlides height and scale, or beside a sibling picture
+     still at the last pass's width, left slides scaled and pictures the wrong size after the A+ and A-
+     controls came back to 100 percent. From the load state every pass lands where a fresh page lands. */
+  document.querySelectorAll('.slide-content').forEach(c => {
+    if (c.closest('#ovFan')) return;
+    c.style.transform = ''; c.style.height = ''; c.style.maxHeight = ''; c.style.flex = '';
+  });
+  document.querySelectorAll('.picfig, .sheet-fig').forEach(fig => {
+    if (fig.closest('#ovFan')) return;
+    fig.style.removeProperty('--pic-w');
+  });
   fitPictures();
   fitSlides();
 }
