@@ -1304,7 +1304,7 @@ ul.plain li::before { color:var(--p-i-ink); }
 <button class="edit-toggle" id="editToggle" title="Edit mode (E)">✏️</button>
 <div class="slide-num" id="slideNum"></div>
 
-<div class="isams-pop" id="isamsPop" role="alert">⚠ <b>iSAMS</b> DO THE REGISTER · <span id="isamsWhen">final by 11:50</span>
+<div class="isams-pop" id="isamsPop" role="alert">⚠ <b>iSAMS</b> DO THE REGISTER · <span id="isamsWhen">final by 14:05</span>
   <a class="isams-go" href="https://aissharjah.isamshosting.cloud/main/framework" target="_blank" rel="noopener">open iSAMS ↗</a>
   <button class="isams-done" id="isamsDone" aria-label="Register done, dismiss reminder">✓ done</button>
 </div>
@@ -1820,7 +1820,7 @@ ul.plain li::before { color:var(--p-i-ink); }
 <div class="overview" id="overview" aria-label="Overview of the lesson">
   <div class="ov-head">
     <p class="eyebrow">// overview</p>
-    <h2>Spike Prime Driving Base 1</h2>
+    <h2>Three Builds and a Secret Challenge</h2>
     <p class="ov-hint">Tap a card to see its slides. Tap a slide to open it, then NEXT carries on.</p>
   </div>
   <div class="ov-grid" id="ovGrid"></div>
@@ -1938,50 +1938,44 @@ const RUNTIME_STRIP = {
    =========================================== */
 const ELEMENTS = [
   /* Before the lesson: the teacher's own card, first in the Overview (Igor, 6 Sep 2026).
-     A checklist with a link button and a tick box on every line, not a slide, so students
-     never present it and nothing in the run is renumbered. Every line is the plan's Before
-     the lesson list, shortened to fit the card and never changed in meaning. */
+     A checklist with a tick box on every line and a link button where a line opens something.
+     Monday 21 September: the plan's eight Before the lesson lines, word for word (the brief for
+     Monday's deck); the cards Doc's address, in brackets in the plan, is its button. */
   { id: 'prep',    name: 'Pre and Post List', prep: true, items: [
-    { text: 'Print 20 Student Sheets, slide 2 of the sheet file.', link: 'sheet file',
-      href: 'https://docs.google.com/presentation/d/1LZP249bEWkLHpFR_EFU-K0XZiPLqZHFXQXyxOTxD-BE/edit' },
-    { text: 'Print the Secret Challenge card, then hide it in IG04.', link: 'card Doc',
-      href: 'https://docs.google.com/document/d/1CZBrRiIXBxjfQAYyhMqcu2ckLmWbv5EvDz9trKWkdIc/edit' },
-    { text: 'Kits in the cupboard, numbered, one per student.', link: 'see the slide',
-      jump: 'kitsOut' },
-    { text: 'On the board: the tracking sheet, Grade 7 tab, column K.', link: 'tracking sheet',
+    { text: 'Print 20 Student Sheets, slide 2 of Monday\'s sheet file.', link: 'sheet file',
+      href: 'https://docs.google.com/presentation/d/1S9F8oaR01B7gEHhJ_8m_5SI63wLQXJyGVIPfobxY7tA/edit' },
+    { text: 'Print the Secret Challenge cards Doc: card 2 once, cards 3, 4 and 5 twice each. Seal each in an envelope. Hide cards 3 to 5 around IG04, one envelope per table\'s reach, and hide card 2 somewhere you can send a student to.', link: 'cards Doc',
+      href: 'https://docs.google.com/document/d/1KInlD0xY_LeJlgCz1RUAugpp0XmhUQChiCM1vqLTzmk/edit' },
+    /* nothing to open on this line, so a tick box and no link button */
+    { text: 'For card 2: a ruler and a small sticky note for every student.' },
+    { text: 'Check the Progress Sheet in Classroom is set to "Make a copy for each student" before it publishes at 13:00.', link: 'Progress Sheet',
+      href: 'https://classroom.google.com/c/ODc2MDk1NjQ1NzY0/a/ODc2MDk1NjQ1Nzky/details' },
+    { text: 'Kits: numbered Spike Prime kits in the IG04 cupboard, at the kit and stand numbers the tracking sheet lists.', link: 'tracking sheet',
       href: 'https://docs.google.com/spreadsheets/d/1TFUbZ6vhZF1lvIkHHocAjgUEoSKXsJ0LRJWBRlT8oGo/edit' },
-    { text: 'On the board: the deck, and Challenge 1 Support.', link: 'build plans',
+    { text: 'On the board: the deck, Challenge 1 Support - Build Plans, the Progress Sheet.', link: 'build plans',
       href: 'https://classroom.google.com/c/ODc2MDk1NjQ1NzY0/m/ODc2MDk1NjQ1Nzg3/details' },
-    { text: 'Open the 7.2 assessment, ready on the board.', link: 'assessment',
-      href: 'https://docs.google.com/document/d/1HD75FoFoHi-kMhbvMfE1sPKJCnEsiZS9bLcWKgMxsjQ/edit?tab=t.0' },
-    /* the plan's duty line: nothing to open, so a tick box and no link button */
-    { text: 'Playground duty on Primary Oval 2 until 11:25: open the room and set the board after that.' },
-    { text: 'Register final by 11:50 in iSAMS, one for the whole lesson.', link: 'iSAMS',
+    { text: 'Register final by 14:05 in iSAMS, one register for the whole lesson.', link: 'iSAMS',
       href: 'https://aissharjah.isamshosting.cloud/main/framework' },
     /* the post lesson line: the notes slide is the last slide of the Reflection and exit card,
        and this button jumps straight to it (Igor, 6 Sep 2026) */
-    { text: 'After class: type your next lesson notes.', link: 'open notes', jump: 'notesBox', post: true }
+    { text: 'After the lesson, type what you want next onto the last slide of the deck (or tell Claude in chat).', link: 'open notes', jump: 'notesBox', post: true }
   ] },
   { id: 'entry',   name: 'Entry routine' },
   { id: 'donow',   name: 'Do Now' },
   { id: 'lisc',    name: 'Learning intention and success criteria' },
-  { id: 'intro',   name: 'The five kit rules' },
-  { id: 'lap1',    name: 'Lesson 1: Kit rules and the first build', lap: true,
-    cfu: 'A piece is on the floor by your table. What happens to it?',
-    sc: 'Success Criterion 1: the five kit rules, kept',
-    brainBreak: 'This or That' },
-  { id: 'lap2',    name: 'Lesson 2: Build Driving Base 1', lap: true,
-    cfu: 'Hold up your build and say the step number you are on.',
-    sc: 'Success Criteria 2 and 3: build it, then check it',
-    brainBreak: 'Look Down, Look Up' },
-  { id: 'lap3',    name: 'Lesson 3: Build, pack up, look back', lap: true,
-    cfu: 'Say the two things Mr Igor checks before you leave.',
-    sc: 'Success Criteria 1, 2 and 3: build, check, kit away',
-    brainBreak: 'Boi-ing 7' },
+  { id: 'intro',   name: 'What you are working towards, and the kit rules' },
+  { id: 'lap1',    name: 'Lesson 1: Finish your three builds', lap: true,
+    cfu: 'Hold up your car: which base are you on, and which step?',
+    sc: 'Success Criteria 1 and 2: the three bases, then the Progress Sheet',
+    brainBreak: 'Heads or Tails' },
+  { id: 'lap2',    name: 'Lesson 2: The Secret Challenge', lap: true,
+    cfu: 'Read out your card\'s question, then your answer.',
+    sc: 'Success Criterion 3: investigate your car and explain what you find',
+    brainBreak: 'Heads Down, Thumbs Up' },
   { id: 'reflect', name: 'Reflection and exit' }
-  /* Three Lessons and one intro card: the Pre and Post List plus eight cards is NINE, three
-     across in three rows on a six column grid (deck law, The Overview). Notes for next lesson
-     is the last slide of the Reflection and exit card. */
+  /* Two Lessons and one intro card: the Pre and Post List plus seven cards is EIGHT, so the
+     last card spans two cells of the three by three grid (deck law, The Overview, points 1
+     and 14). Notes for next lesson is the last slide of the Reflection and exit card. */
 ];
 
 const EDIT_KEY = 'g7-week3-lesson2-edits:' + DECK_VERSION;
@@ -4088,15 +4082,15 @@ class DeckOverview {
    =========================================== */
 const ROSTER = [
   /* 071DITA, the twenty on Igor's seating plan master (unchanged since 7 September 2026),
-     A to Z by first name, spelt as on the master. table is the reference deck's own table
-     number. pair is the person beside you on the seating plan, the partner rule of today's
+     A to Z by first name, spelt as on the master. table is the TABLE bar each name sits
+     beside on the master (read again on 16 Sep 2026 for Monday's run: nobody sits at Table 3). pair is the person beside you on the seating plan, the partner rule of today's
      Timed Pair Share ("the person beside you"), read off the master's rows, and every pair
      sits inside one table. Same class and same master as Tuesday, so the list is Tuesday's. */
-  { first:'Abdallah',        full:'Abdallah Alkandari',      table:2, pair:3 },
+  { first:'Abdallah',        full:'Abdallah Alkandari',      table:1, pair:3 },
   { first:'Abdulla',         full:'Abdulla Alowais',         table:1, pair:4 },
-  { first:'Adam',            full:'Adam Alobeidyeen',        table:2, pair:3 },
-  { first:'Adam',            full:'Adam Elsheikh',           table:3, pair:1 },
-  { first:'Ali',             full:'Ali Alrobari',            table:3, pair:1 },
+  { first:'Adam',            full:'Adam Alobeidyeen',        table:1, pair:3 },
+  { first:'Adam',            full:'Adam Elsheikh',           table:2, pair:1 },
+  { first:'Ali',             full:'Ali Alrobari',            table:2, pair:1 },
   { first:'Ali',             full:'Ali Mahmoud',             table:2, pair:2 },
   { first:'Ali',             full:'Ali Mohsini',             table:2, pair:2 },
   { first:'Faisal',          full:'Faisal Almaazmi',         table:4, pair:6 },
